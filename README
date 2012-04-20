@@ -1,0 +1,9 @@
+License: Released under GPLv2
+
+Indexes a directory of documents (emails).
+Creates a database of the form: word -> list of emails containing the word.
+This allows to search words faster.
+
+Indexing 125K of emails requires 160M of RAM (keeping 300K of words)
+Indexing 500K of emails requires 540M of RAM (keeping 580K of words)
+
