@@ -4,6 +4,16 @@ Indexes a directory of documents (emails).
 Creates a database of the form: word -> list of emails containing the word.
 This allows to search words faster.
 
+Tested on email database: http://www.cs.cmu.edu/~enron/enron_mail_20110402.tgz
+
+
+Hystory:
+
+After using intern() function (32bits system):
+Indexing 125K of emails requires  82M of RAM (keeping 300K of words)
+Indexing 500K of emails requires 275M of RAM (keeping 580K of words)
+
+Initial results (64bits system):
 Indexing 125K of emails requires 160M of RAM (keeping 300K of words)
 Indexing 500K of emails requires 540M of RAM (keeping 580K of words)
 

@@ -133,12 +133,12 @@ def index_flat_dir(path, doc_id):
         for name in files:
             if not name.startswith('.'):
                 with open(os.path.join(root, name), 'r+') as f:
-                    index_file(f.read(), DocId(name, doc_id))
+                    index_file(f.read(), DocId(intern(name), doc_id))
 
 def index_subdirs(path, subdirname):
     for name in os.listdir(path):
         if not name.startswith('.'):
-            index_flat_dir(os.path.join(path, name, subdirname), DocId(name))
+            index_flat_dir(os.path.join(path, name, subdirname), DocId(intern(name)))
 
 def index_allsubdirs(dir_path):
     dir_id = DocId('')
@@ -147,9 +147,9 @@ def index_allsubdirs(dir_path):
             if not name.startswith('.'):
                 with open(os.path.join(root, name), 'r+') as f:
                     if root != dir_id._name:
-                        dir_id.name = root
+                        dir_id.name = intern(root)
 
-                    index_file(f.read(), DocId(name, dir_id))
+                    index_file(f.read(), DocId(intern(name), dir_id))
 
 #index_flat_dir('./enron_mail_20110402/maildir/skilling-j/all_documents', DocId('skilling-j'))
 #index_subdirs('./enron_mail_20110402/maildir', 'all_documents')
